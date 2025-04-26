@@ -5,23 +5,24 @@
   </head>
   <body>
     <p>yo wassup brotha</p>
-<script>
-  async function checkBan() {
-    try {
-      const response = await fetch('/api/ban');
-      const data = await response.json();
+    <script>
+      async function checkBan() {
+        try {
+          const response = await fetch('/api/ban');
+          const data = await response.json();
 
-      if (response.status === 403) {
-        // Redirect to a banned page
-        window.location.href = '/banned.html'; // Replace with your banned page URL
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
+          if (response.status === 403) {
+            // Redirect to a banned page
+            window.location.href = '/banned.html'; // Replace with your banned page URL
+          } // <-- you forgot this curly brace!
+          
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }
 
-  // Run checkBan on page load
-  window.onload = checkBan;
-</script>
-
+      // Run checkBan on page load
+      window.onload = checkBan;
+    </script>
   </body>
 </html>
