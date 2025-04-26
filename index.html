@@ -5,5 +5,25 @@
   </head>
   <body>
     <p>yo wassup brotha</p>
+    <script>
+  async function checkBan() {
+    try {
+      const response = await fetch('/api/ban');
+      const data = await response.json();
+
+      if (response.status === 403) {
+        alert(data.message); // Show ban message
+      } else {
+        alert(data.message); // Show welcome message
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+  // Run checkBan on page load
+  window.onload = checkBan;
+</script>
+
   </body>
 </html>
