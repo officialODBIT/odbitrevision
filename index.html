@@ -5,6 +5,23 @@
   </head>
   <body>
     <p>yo wassup brotha</p>
-    <!-- No need for the script anymore -->
+    <script>
+      async function checkBan() {
+        try {
+          // Make a request to the /api/ban endpoint
+          const response = await fetch('/api/ban');
+
+          // If the API returns a redirect (meaning banned), handle it
+          if (response.redirected) {
+            window.location.href = '/banned.html'; // Redirect to the banned page
+          }
+        } catch (error) {
+          console.error('Error checking ban:', error);
+        }
+      }
+
+      // Run checkBan on page load
+      window.onload = checkBan;
+    </script>
   </body>
 </html>
