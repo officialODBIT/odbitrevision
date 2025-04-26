@@ -5,17 +5,15 @@
   </head>
   <body>
     <p>yo wassup brotha</p>
-    <script>
+<script>
   async function checkBan() {
     try {
       const response = await fetch('/api/ban');
       const data = await response.json();
 
       if (response.status === 403) {
-        alert(data.message); // Show ban message
-      } else {
-        alert(data.message); // Show welcome message
-      }
+        // Redirect to a banned page
+        window.location.href = '/banned.html'; // Replace with your banned page URL
     } catch (error) {
       console.error('Error:', error);
     }
