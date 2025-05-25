@@ -33,15 +33,20 @@
       <p>Click the button below to learn more.</p>
       <button class="btn" id="button">More info...</button>
       <button class="btn" id="shop">Shop...</button>
+      <button class="btn" id="home">Home...</button>
     </div>
     <script>
       const bttn = document.getElementById("button");
       const shpbtn = document.getElementById("shop");
+      const hmbtn = document.getElementById("home");
+      hmbtn.addEventListener("click", function() {
+        window.location.href = "https://odbit.club/home"; // home page copied from original odbit.org
+      });
       shpbtn.addEventListener("click", function() {
-        window.location.href = "https://odbit.club/shop.html"; // shop will be added later.
+        window.location.href = "https://odbit.club/shop.html"; // shop will be added later
       });
           bttn.addEventListener("click", function() {
-            window.location.href = "https://odbit.club/info.html";
+            window.location.href = "https://odbit.club/info.html"; // info page
       });
             window.onload = function() {
         checkBan();
@@ -54,88 +59,10 @@
             window.location.href = '/banned.html';
           }
         } catch (error) {
-          console.error('Error checking ban:', error);
+          console.error('an error occured during check:', error);
+          alert("An error occured while checking user confirmation.");
         }
       }
     </script>
   </body>
 </html>
-<!--<html>
-  <head>
-    <title>Coming soon</title>
-    <link rel="icon" href="odbitlogo25.png" type="image/png">
-    <style>
-      body {
-        background-color: #c4c470;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-      }
-      .text {
-        font-family: Arial;
-        text-align: center;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="text">
-      <h1>Hello world!</h1>
-      <h2>Today is: <span id="currentDate"></span></h2>
-      <h4 id="countdown"></h4>
-      <p>for now, go to odbit.org to visit the main page.</p>
-      <a href="https://www.odbit.org/">
-        <button>Main Page</button>
-      </a>
-    </div>
-    <script>
-      const deploymentDate = new Date("2025-05-06T00:00:00"); 
-
-      function displayCurrentDate() {
-        const currentDate = new Date();
-        const formattedDate = currentDate.toDateString();
-        document.getElementById("currentDate").innerText = formattedDate;
-      }
-
-      function updateCountdown() {
-        const now = new Date();
-        const timeRemaining = deploymentDate - now;
-
-        if (timeRemaining <= 0) {
-          document.getElementById("countdown").innerText = "Deployment has arrived!";
-          clearInterval(countdownInterval); 
-          return;
-        }
-
-        const weeks = Math.floor(timeRemaining / (1000 * 60 * 60 * 24 * 7));
-        const days = Math.floor((timeRemaining % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerText = `Which is ${weeks} weeks, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds until deployment!`;
-      }
-
-      window.onload = function() {
-        checkBan();
-        displayCurrentDate();
-        updateCountdown(); 
-        const countdownInterval = setInterval(updateCountdown, 1000); 
-      };
-
-      async function checkBan() {
-        try {
-          const response = await fetch('/api/ban');
-          if (response.redirected) {
-            window.location.href = '/banned.html';
-          }
-        } catch (error) {
-          console.error('Error checking ban:', error);
-        }
-      }
-    </script>
-  </body>
-</html>
--->
