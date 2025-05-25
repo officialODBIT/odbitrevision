@@ -81,6 +81,7 @@
 <html>
   <head>
     <link rel="icon" href="odbitlogo25.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <title>
       ODBIT | Revised
     </title>
@@ -98,7 +99,7 @@
         color: #333;
         padding: 10px 20px;
         border-radius: 8px;
-        curser: pointer;
+        cursor: pointer;
         font-weight: bold;
       }
     </style>
@@ -115,7 +116,23 @@
           bttn.addEventListener("click", function() {
             window.location.href = "https://odbit.club/info.html";
       });
+            window.onload = function() {
+        checkBan();
+        displayCurrentDate();
+        updateCountdown(); 
+        const countdownInterval = setInterval(updateCountdown, 1000); 
+      };
 
+      async function checkBan() {
+        try {
+          const response = await fetch('/api/ban');
+          if (response.redirected) {
+            window.location.href = '/banned.html';
+          }
+        } catch (error) {
+          console.error('Error checking ban:', error);
+        }
+      }
     </script>
   </body>
 </html>
