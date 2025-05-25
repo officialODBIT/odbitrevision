@@ -1113,6 +1113,17 @@
                 }
             });
         });
+        async function checkBan() {
+        try {
+          const response = await fetch('/api/ban');
+          if (response.redirected) {
+            window.location.href = '/banned.html';
+          }
+        } catch (error) {
+          console.error('an error occured during check:', error);
+          alert("An error occured while checking user confirmation.");
+        }
+      }
     </script>
 </body>
 </html>
