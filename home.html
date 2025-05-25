@@ -975,10 +975,18 @@
         </div>
     </footer>
 
-    <script src="cookieGenerator.js"></script>
-    <script src="sentry_77839.js"></script>
-
     <script>
+        async function checkBan() {
+        try {
+          const response = await fetch('/api/ban');
+          if (response.redirected) {
+            window.location.href = '/banned.html';
+          }
+        } catch (error) {
+          console.error('an error occured during check:', error);
+          alert("An error occured while checking user confirmation.");
+        }
+      }
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Successful. View console log for more info.')
@@ -1113,17 +1121,7 @@
                 }
             });
         });
-        async function checkBan() {
-        try {
-          const response = await fetch('/api/ban');
-          if (response.redirected) {
-            window.location.href = '/banned.html';
-          }
-        } catch (error) {
-          console.error('an error occured during check:', error);
-          alert("An error occured while checking user confirmation.");
-        }
-      }
+        
     </script>
 </body>
 </html>
