@@ -99,6 +99,7 @@
         padding: 10px 20px;
         border-radius: 8px;
         curser: pointer;
+        font-weight: bold;
       }
     </style>
   </head>
@@ -109,5 +110,12 @@
       <p>Click the button below to learn more.</p>
       <button class="btn" id="button">More info...</button>
     </div>
+    <script>
+      const bttn = document.getElementById("button");
+          bttn.addEventListener("click", function() {
+            window.location.href = "https://odbit.club/info";
+      });
+
+    </script>
   </body>
 </html>
