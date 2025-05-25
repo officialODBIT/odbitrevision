@@ -46,5 +46,21 @@
         There will also be a lock at the top! DO NOT SHARE SENSITIVE INFO WITH ANY SITE YOU DON'T TRUST!
       </p>
     </div>
+    <script>
+                  window.onload = function() {
+        checkBan();
+      };
+
+      async function checkBan() {
+        try {
+          const response = await fetch('/api/ban');
+          if (response.redirected) {
+            window.location.href = '/banned.html';
+          }
+        } catch (error) {
+          console.error('Error checking ban:', error);
+        }
+      }
+    </script>
   </body>
 </html>
