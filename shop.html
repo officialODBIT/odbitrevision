@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUXE - Premium Collection</title>
+    <title>ODBIT - E-commerce</title>
     <style>
         * {
             margin: 0;
@@ -377,7 +377,7 @@
     
     <header>
         <nav>
-            <div class="logo">LUXE</div>
+            <div class="logo">ODBIT</div>
             <button class="cart-btn" onclick="toggleCart()">
                 🛒 Cart
                 <span class="cart-count" id="cartCount">0</span>
@@ -387,8 +387,8 @@
 
     <main>
         <section class="hero">
-            <h1>Premium Collection</h1>
-            <p>Discover extraordinary products with extraordinary experiences</p>
+            <h1>ODBIT Store</h1>
+            <p>Discover all we got with our brand new in progress store!</p>
         </section>
 
         <!--<section class="products" id="products">
@@ -451,11 +451,16 @@
                 Total: $<span id="cartTotal">0</span>
             </div>
             <button class="close-btn" onclick="toggleCart()">Close</button>
+            <button class="close-btn" id="ent">Checkout</button>
         </div>
     </div>
 
     <script>
         // Cart functionality
+        const checkout = document.getElementById("ent");
+        checkout.addEventListener("click", function() {
+            window.location.href = "https://odbit.club/checkout.html"
+        });
         let cart = [];
         let cartCount = 0;
         let cartTotal = 0;
