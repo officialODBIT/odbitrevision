@@ -10,5 +10,21 @@
     <p>ODBIT.ORG has been *hopefully* temporarily down; due to IONOS (registrar) being stupid and removing my account in general.</p>
     <p>As for now, we are stuck with odbit.club which has a bright future. The registrar is GoDaddy -- which is a good registrar!</p>
     <p>ODBIT will use odbit.club as a little hangout area where you could maybe buy some stuff! We won't steal your info--we promise.</p>
+    <script>
+                  window.onload = function() {
+        checkBan();
+      };
+
+      async function checkBan() {
+        try {
+          const response = await fetch('/api/ban');
+          if (response.redirected) {
+            window.location.href = '/banned.html';
+          }
+        } catch (error) {
+          console.error('Error checking ban:', error);
+        }
+      }
+    </script>
   </body>
 </html>
